@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Colour picker</title>
+    <link rel="stylesheet" href="picker.css"/>
+    <script type="text/javascript" src="picker.js"></script>
+</head>
+<body>
+    <div id="colour-picker">
+        <div id="selectors">
+            <div id="saturation">
+                <canvas id="saturation-chart" class="saturation-canvas" height="256" width="256"></canvas>
+                <canvas id="saturation-lines" class="saturation-canvas" height="1000" width="1000"></canvas>
+                <div id="saturation-position">
+                    <div id="saturation-indicator"></div>
+                </div>
+            </div>
+            <div class="hue">
+                <input aria-labelledby="hue-label" type="range" id="hue-slider" min="0" max="360">
+                <input aria-labelledby="hue-label" type="number" id="hue-input" min="0" max="360" pattern="\d\d\d">
+                <label for="hue-slider" id="hue-label">Hue (Degrees)</label>
+            </div>
+        </div>
+        <div class="gauges">
+            <div class="preview">
+                <div id="colour-preview"></div>
+                <div class="preview-text">
+                    <label for="preview-hex" class="gauge-label">Hex</label>
+                    <input type="text" id="preview-hex" class="gauge-number" readonly/>
+                    <label for="preview-rgb" class="gauge-label">RGB</label>
+                    <input type="text" id="preview-rgb" class="gauge-number" readonly/>
+                    <label for="preview-luminance" class="gauge-label">Luminance</label>
+                    <input type="text" id="preview-luminance" class="gauge-number" readonly/>
+
+                </div>
+            </div>
+            <div class="line-config">
+                <div class="form-row">
+                    Lines
+                </div>
+                <div class="form-spacer"></div>
+                <div class="form-row">
+                    <input type="radio" name="line" id="line-disable" class="line-radio" value="NONE" checked>
+                    <label for="line-disable" class="gauge-label">Hide</label>
+                </div>
+                <div class="form-spacer"></div>
+                <div class="form-row">
+                    <input type="radio" name="line" id="font-line-enable" class="line-radio" value="B/W">
+                    <label for="font-line-enable" class="gauge-label">Black/White contrast</label>
+                </div>
+                <div class="form-spacer"></div>
+                <div class="form-row">
+                    <input type="radio" name="line" id="contrast-line-enable" class="line-radio" value="COLOUR">
+                    <label for="contrast-line-enable" class="gauge-label">Colour contrast</label>
+                </div>
+                <div class="form-row">
+                    <input type="color" id="contrast-colour-input"/>
+                    <label for="contrast-colour-input" class="gauge-label">Colour</label>
+                </div>
+                <div class="form-row">
+                    <input type="number" id="contrast-ratio-input" min="1" max="21" step="0.5" value="4.5"/>
+                    <label for="contrast-ratio-input" class="gauge-label">Contrast ratio (N:1)</label>
+                </div>
+                <div class="form-row">
+                    <label for="preview-contrast-minimum-luminance" class="gauge-label">Luminance &gt;=</label>
+                    <input type="text" id="preview-contrast-minimum-luminance" class="gauge-number" readonly/>
+                </div>
+                <div class="form-row">
+                    <label for="preview-contrast-maximum-luminance" class="gauge-label">Luminance &lt;=</label>
+                    <input type="text" id="preview-contrast-maximum-luminance" class="gauge-number" readonly/>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
